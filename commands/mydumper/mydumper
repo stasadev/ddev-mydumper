@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## #ddev-generated
+## Description: Run mydumper
+## Usage: mydumper
+## Example: ddev mydumper
+
+mydumper "$@"

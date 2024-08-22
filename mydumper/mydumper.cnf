@@ -1,0 +1,59 @@
+#ddev-generated
+# This is a copy of https://github.com/mydumper/mydumper/blob/master/mydumper.cnf
+# with DDEV database additions.
+
+#############################################################################
+#
+# This is the main configuration file of MyDumper
+# All the default setting are here
+# You can modify them but we recommend you to use --defaults-extra-file
+#
+#############################################################################
+
+[mydumper_global_variables]
+# The global variables changed in this section are rolled back after execution unless QUIT signal is sent.
+
+# sync_binlog = 0
+# slow_query_log = OFF
+
+[mydumper_session_variables]
+# These are examples of variables that you might want to change
+# wait_timeout = 300
+# sql_mode = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
+# sql_mode='ANSI_QUOTES';
+
+[myloader_global_variables]
+# The global variables changed in this section are rolled back after execution unless QUIT signal is sent.
+# There are examples of global variables that will speed up the imports
+# sync_binlog = 0
+# innodb_flush_log_at_trx_commit = 0
+
+[myloader_session_variables]
+# These are the defaults
+SQL_MODE='NO_AUTO_VALUE_ON_ZERO' /*!40101
+UNIQUE_CHECKS=0 /*!40114
+FOREIGN_KEY_CHECKS=0 /*!40114
+
+# sync_binlog = 0
+# innodb_flush_log_at_trx_commit = 0
+
+[myloader_session_variables_mariadb]
+# This setting replaces the default in the section [myloader_session_variables]. More details in #987
+SQL_MODE='NO_AUTO_VALUE_ON_ZERO' /*!40101
+UNIQUE_CHECKS=1 /*!40114
+FOREIGN_KEY_CHECKS=0 /*!40114
+
+# Added DDEV database config:
+[mydumper]
+host = db
+user = root
+password = root
+database = db
+rows = 10000
+
+[myloader]
+host = db
+user = root
+password = root
+database = db
+innodb-optimize-keys = AFTER_IMPORT_PER_TABLE

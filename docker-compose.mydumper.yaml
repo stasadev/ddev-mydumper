@@ -1,0 +1,20 @@
+#ddev-generated
+services:
+  mydumper:
+    container_name: ddev-${DDEV_SITENAME}-mydumper
+    image: mydumper/mydumper:v0.16.6-2
+    user: '$DDEV_UID:$DDEV_GID'
+    command: tail -f /dev/null
+    working_dir: /var/www/html
+    restart: "no"
+    # These labels ensure this service is discoverable by ddev.
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    volumes:
+      - ".:/mnt/ddev_config"
+      - "ddev-global-cache:/mnt/ddev-global-cache"
+      - "./mydumper/mydumper.cnf:/etc/mydumper.cnf"
+      - "../:/var/www/html"
+    depends_on:
+      - db
