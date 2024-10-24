@@ -12,8 +12,23 @@ This repository allows you to quickly install [MyDumper](https://github.com/mydu
 
 ## Installation
 
-1. `ddev get stasadev/ddev-mydumper`
-2. `ddev restart`
+For DDEV v1.23.5 or above run
+
+```sh
+ddev add-on get stasadev/ddev-mydumper
+```
+
+For earlier versions of DDEV run
+
+```sh
+ddev get stasadev/ddev-mydumper
+```
+
+Then restart the project
+
+```sh
+ddev restart
+```
 
 ## Usage
 
