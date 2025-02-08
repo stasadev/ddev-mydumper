@@ -1,4 +1,4 @@
-[![tests](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml/badge.svg)](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml) ![project is maintained](https://img.shields.io/maintenance/yes/2024.svg)
+[![tests](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml/badge.svg)](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml) ![project is maintained](https://img.shields.io/maintenance/yes/2025.svg)
 
 # DDEV MyDumper Add-on
 
@@ -27,6 +27,15 @@ ddev get stasadev/ddev-mydumper
 Then restart the project
 
 ```sh
+ddev restart
+```
+
+
+With DDEV v1.23.5+ you can choose a different MyDumper tag, the command below creates a `.ddev/.env.mydumper` file that you can commit:
+
+```sh
+ddev dotenv set .ddev/.env.mydumper --mydumper-tag v0.17.2-19
+ddev add-on get stasadev/ddev-mydumper
 ddev restart
 ```
 
