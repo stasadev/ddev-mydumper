@@ -2,7 +2,7 @@
 services:
   mydumper:
     container_name: ddev-${DDEV_SITENAME}-mydumper
-    image: mydumper/mydumper:v0.16.6-2
+    image: mydumper/mydumper:${MYDUMPER_TAG:-latest}
     user: '$DDEV_UID:$DDEV_GID'
     command: tail -f /dev/null
     working_dir: /var/www/html
