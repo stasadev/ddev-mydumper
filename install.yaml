@@ -27,3 +27,5 @@ pre_install_actions:
 project_files:
   - docker-compose.mydumper.yaml
   - commands/mydumper
+
+ddev_version_constraint: '>= v1.24.3'

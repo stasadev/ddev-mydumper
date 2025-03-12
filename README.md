@@ -1,5 +1,5 @@
-[![tests](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml/badge.svg?event=schedule)](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml)
-![project is maintained](https://img.shields.io/maintenance/yes/2025.svg)
+[![tests](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml?query=branch%3Amain)
+[![project is maintained](https://img.shields.io/maintenance/yes/2025.svg)](https://github.com/stasadev/ddev-mydumper/commits)
 [![release](https://img.shields.io/github/v/release/stasadev/ddev-mydumper)](https://github.com/stasadev/ddev-mydumper/releases/latest)
 
 # DDEV MyDumper
@@ -25,8 +25,8 @@ After installation, make sure to commit the `.ddev` directory to version control
 
 | Command | Description |
 | ------- | ----------- |
-| `ddev mydumper` | Export a consistent backup. |
-| `ddev myloader` | Read the backup from `ddev mydumper`, connect the to destination database and import the backup. |
+| `ddev mydumper` | Backup export. |
+| `ddev myloader` | Backup import. |
 
 Examples:
 
@@ -34,27 +34,25 @@ Examples:
 ddev mydumper --help
 ddev myloader --help
 
-ddev mydumper --clear --outputdir=dump
-ddev myloader --directory=dump
+ddev mydumper --database=db --outputdir=dump
+ddev myloader --database=db --directory=dump
 ```
 
 For more detailed usage instructions, visit the [MyDumper Wiki](https://github.com/mydumper/mydumper/wiki).
 
 ## Advanced Customization
 
-You can customize MyDumper's configuration via [mydumper.cnf](./mydumper/mydumper.cnf).
-
 To change the Docker image used by MyDumper:
 
 ```bash
-ddev dotenv set .ddev/.env.mydumper --mydumper-docker-image mydumper/mydumper:latest
+ddev dotenv set .ddev/.env.mydumper --mydumper-docker-image=mydumper/mydumper:latest
 ddev add-on get stasadev/ddev-mydumper
 ddev restart
 ```
 
-Make sure to also commit the `.ddev/.env.mydumper` file to version control.
+Make sure to commit the `.ddev/.env.mydumper` file to version control.
 
-Customization options (use with caution):
+All customization options (use with caution):
 
 | Variable | Flag | Default |
 | -------- | ---- | ------- |
