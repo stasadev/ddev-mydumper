@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## #ddev-generated
-## Description: Run mydumper
+## Description: Export a consistent backup
 ## Usage: mydumper
-## Example: ddev mydumper
+## Example: ddev mydumper\nddev mydumper --clear --outputdir=dump
 
-mydumper "$@"
+mydumper --host=db --user=root --password=root --database=db --debug "$@"

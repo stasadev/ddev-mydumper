@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ## #ddev-generated
-## Description: Run myloader
+## Description: Read the backup from `ddev mydumper`, connect the to destination database and import the backup
 ## Usage: myloader
-## Example: ddev myloader -d dump
+## Example: ddev myloader\nddev myloader --directory=dump
 
-myloader "$@"
+myloader --host=db --user=root --password=root --database=db --debug "$@"
