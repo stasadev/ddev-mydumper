@@ -1,7 +1,29 @@
 name: mydumper
 
-# list of files and directories listed that are copied into project .ddev directory
+pre_install_actions:
+  - |
+    #ddev-nodisplay
+    #ddev-description:Check for existing .ddev/mydumper/mydumper.cnf
+    if [ -f .ddev/mydumper/mydumper.cnf ]; then
+      echo "The logic from .ddev/mydumper/mydumper.cnf is moved to docker-compose.mydumper.yaml"
+      echo "Remove .ddev/mydumper/mydumper.cnf and run this command again"
+      exit 1
+    fi
+  - |
+    #ddev-nodisplay
+    #ddev-description:Check for db service
+    if ({{ contains "db" (list .DdevProjectConfig.omit_containers | toString) }}); then
+      echo "Unable to install the application because no db service was found"
+      exit 2
+    fi
+  - |
+    #ddev-nodisplay
+    #ddev-description:Check for correct database type
+    if [ ${DDEV_DATABASE_FAMILY:-} = "postgres" ]; then
+      echo "This add-on is not intended to use with PostreSQL database"
+      exit 3
+    fi
+
 project_files:
   - docker-compose.mydumper.yaml
   - commands/mydumper
-  - mydumper/mydumper.cnf
