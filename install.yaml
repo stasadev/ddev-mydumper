@@ -12,8 +12,8 @@ pre_install_actions:
   - |
     #ddev-nodisplay
     #ddev-description:Check for db service
-    if ({{ contains "db" (list .DdevProjectConfig.omit_containers | toString) }}); then
-      echo "Unable to install the application because no db service was found"
+    if ddev debug configyaml 2>/dev/null | grep omit_containers | grep -q db; then
+      echo "Unable to install the add-on because no db service was found"
       exit 2
     fi
   - |
