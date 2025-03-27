@@ -25,8 +25,8 @@ After installation, make sure to commit the `.ddev` directory to version control
 
 | Command | Description |
 | ------- | ----------- |
-| `ddev mydumper` | Backup export. |
-| `ddev myloader` | Backup import. |
+| `ddev mydumper` | Backup export |
+| `ddev myloader` | Backup import |
 
 Examples:
 
@@ -60,4 +60,4 @@ All customization options (use with caution):
 
 ## Credits
 
-Contributed and maintained by [@stasadev](https://github.com/stasadev).
+**Contributed and maintained by [@stasadev](https://github.com/stasadev)**
