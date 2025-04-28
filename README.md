@@ -1,5 +1,6 @@
+[![add-on registry](https://img.shields.io/badge/DDEV-Add--on_Registry-blue)](https://addons.ddev.com)
 [![tests](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/stasadev/ddev-mydumper/actions/workflows/tests.yml?query=branch%3Amain)
-[![project is maintained](https://img.shields.io/maintenance/yes/2025.svg)](https://github.com/stasadev/ddev-mydumper/commits)
+[![last commit](https://img.shields.io/github/last-commit/stasadev/ddev-mydumper)](https://github.com/stasadev/ddev-mydumper/commits)
 [![release](https://img.shields.io/github/v/release/stasadev/ddev-mydumper)](https://github.com/stasadev/ddev-mydumper/releases/latest)
 
 # DDEV MyDumper
@@ -27,6 +28,7 @@ After installation, make sure to commit the `.ddev` directory to version control
 | ------- | ----------- |
 | `ddev mydumper` | Backup export |
 | `ddev myloader` | Backup import |
+| `ddev logs -s mydumper` | Check MyDumper logs |
 
 Examples:
 
