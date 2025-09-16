@@ -36,8 +36,9 @@ Examples:
 ddev mydumper --help
 ddev myloader --help
 
-ddev mydumper --database=db --outputdir=dump
-ddev myloader --database=db --directory=dump
+# To dump and load a different database (not the default "db"):
+ddev mydumper --database=other-db --outputdir=dump
+ddev myloader --database=other-db --directory=dump
 ```
 
 For more detailed usage instructions, visit the [MyDumper Wiki](https://github.com/mydumper/mydumper/wiki).
