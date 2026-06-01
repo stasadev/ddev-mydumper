@@ -3,6 +3,6 @@
 ## #ddev-generated
 ## Description: Export a consistent backup
 ## Usage: mydumper
-## Example: ddev mydumper\nddev mydumper --clear --outputdir=dump
+## Example: ddev mydumper\nddev mydumper --clear --outputdir=dump --debug
 
-mydumper --host=db --user=root --password=root --database=db --debug "$@"
+mydumper --host=db --user=root --password=root --database=db "$@"
