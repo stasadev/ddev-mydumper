@@ -2,7 +2,6 @@ name: mydumper
 
 pre_install_actions:
   - |
-    #ddev-nodisplay
     #ddev-description:Check for existing .ddev/mydumper/mydumper.cnf
     if [ -f .ddev/mydumper/mydumper.cnf ]; then
       echo "The logic from .ddev/mydumper/mydumper.cnf is moved to docker-compose.mydumper.yaml"
@@ -10,14 +9,12 @@ pre_install_actions:
       exit 1
     fi
   - |
-    #ddev-nodisplay
     #ddev-description:Check for db service
     if ddev debug configyaml 2>/dev/null | grep omit_containers | grep -q db; then
       echo "Unable to install the add-on because no db service was found"
       exit 2
     fi
   - |
-    #ddev-nodisplay
     #ddev-description:Check for correct database type
     if [ ${DDEV_DATABASE_FAMILY:-} = "postgres" ]; then
       echo "This add-on is not intended to use with PostreSQL database"
@@ -28,4 +25,4 @@ project_files:
   - docker-compose.mydumper.yaml
   - commands/mydumper
 
-ddev_version_constraint: '>= v1.24.3'
+ddev_version_constraint: '>= v1.24.10'
