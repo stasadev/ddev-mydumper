@@ -3,6 +3,6 @@
 ## #ddev-generated
 ## Description: Read the backup from `ddev mydumper`, connect the to destination database and import the backup
 ## Usage: myloader
-## Example: ddev myloader\nddev myloader --directory=dump
+## Example: ddev myloader\nddev myloader --directory=dump --debug
 
-myloader --host=db --user=root --password=root --database=db --debug "$@"
+myloader --host=db --user=root --password=root --database=db "$@"
